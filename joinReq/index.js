@@ -196,7 +196,8 @@ async function subscribe(user, mediaType) {
   
       </div>
     `);
-//    $("#remote-playerlist-1").append(player);
+    
+    $("#remote-playerlist-1").append(player);
 //    $("#remote-playerlist-2").append(player);
 
         // 使用jQuery的AJAX方法獲取另一個HTML文件
@@ -210,7 +211,7 @@ async function subscribe(user, mediaType) {
         // 選擇id為"mydiv2"的div元素並操作它
         var mydiv2 = $('#remote-playerlist-1');
         mydiv2.append(player);
-        
+
         user.videoTrack.play(`player-${uid}`, {
           fit: "contain"
         });
@@ -239,4 +240,18 @@ function handleUserUnpublished(user, mediaType) {
     delete remoteUsers[id];
     $(`#player-wrapper-${id}`).remove();
   }
+}
+var win;
+function testOpenNewWindow(text) {
+  win =window.open('./showView1', '_blank', 'width=500,height=500');
+ // win = window.open();  //開啟新的空白視窗
+win.document.write ("<h1>這是原來視窗</h1>");  //在新視窗中輸出提示資訊
+win.focus ();  //讓原視窗獲取焦點
+//win.opener.document.write ("<h1>這是原來視窗</h1>");  //在原視窗中輸出提示資訊
+console.log(win.opener == window);  //檢測window.opener屬性值
+
+}
+
+function testCloseWindow() {
+  win.close();
 }
