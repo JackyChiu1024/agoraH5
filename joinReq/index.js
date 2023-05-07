@@ -89,7 +89,7 @@ async function subscribe(user, mediaType) {
     user.videoTrack.play(`player-${uid}`, {
       fit: "contain"
     });
-    
+
     //get browser-native object MediaStreamTrack from WebRTC SDK
     const msTrack = user.videoTrack.getMediaStreamTrack();
     //generate browser-native object MediaStream with above video track
@@ -128,4 +128,8 @@ function testOpenNewWindow(text) {
 
 function testCloseWindow() {
   win.close();
+}
+
+function printText() {
+  console.error("test tset tset aa");
 }
