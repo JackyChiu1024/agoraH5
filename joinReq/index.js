@@ -55,7 +55,14 @@ $("#lowLatency").click(function (e) {
 
 function mockJoin() {
   options = mockOptions;
-  $("#join-form").submit();
+  if (options.appid && options.channel) {
+    $("#uid").val(options.uid);
+    $("#appid").val(options.appid);
+    $("#token").val(options.token);
+    $("#channel").val(options.channel);
+    $("#join-form").submit();
+  }
+ // $("#join-form").submit();
 }
 
 
