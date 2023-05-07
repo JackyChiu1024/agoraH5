@@ -245,7 +245,7 @@ var win;
 function testOpenNewWindow(text) {
   win =window.open('./showView1', '_blank', 'width=500,height=500');
  // win = window.open();  //開啟新的空白視窗
-win.document.write ("<h1>這是原來視窗</h1>");  //在新視窗中輸出提示資訊
+win.document.write ("<h1>url:"+win.location.href+"</h1>");  //在新視窗中輸出提示資訊
 win.focus ();  //讓原視窗獲取焦點
 //win.opener.document.write ("<h1>這是原來視窗</h1>");  //在原視窗中輸出提示資訊
 console.log(win.opener == window);  //檢測window.opener屬性值
