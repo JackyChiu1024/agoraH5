@@ -65,6 +65,21 @@ function mockJoin() {
  // $("#join-form").submit();
 }
 
+function reqJion(appid, channel, token="", uid="") {
+  options.appid = appid;
+  options.channel = channel;
+  options.role = 'audience';
+  options.token = token;
+  options.uid = uid;
+  options.audienceLatency = 1;
+  if (options.appid && options.channel) {
+    $("#uid").val(options.uid);
+    $("#appid").val(options.appid);
+    $("#token").val(options.token);
+    $("#channel").val(options.channel);
+    $("#join-form").submit();
+  }
+}
 
 $("#ultraLowLatency").click(function (e) {
   options.role = "audience";
@@ -129,17 +144,12 @@ async function join() {
     localTracks.videoTrack.play("local-player");
     $("#local-player-name").text(`localTrack(${options.uid})`);
 
-    //create the mirror of local player
-    $("#local-player-mirror-area").show();
-    $("#joined-setup").css("display", "flex");
-    var mirrorPlayer = document.getElementById("local-player-mirror-video-track");
 
     //get browser-native object MediaStreamTrack from WebRTC SDK
     const msTrack = localTracks.videoTrack.getMediaStreamTrack();
     //generate browser-native object MediaStream with above video track
     const ms = new MediaStream([msTrack]);
-    mirrorPlayer.srcObject = ms;
-    mirrorPlayer.play();
+
 
     // publish local tracks to channel
     await client.publish(Object.values(localTracks));
@@ -166,7 +176,7 @@ async function leave() {
   $("#host-join").attr("disabled", false);
   $("#audience-join").attr("disabled", false);
   $("#leave").attr("disabled", true);
-  $(".video-mirror").hide();
+
   $("#joined-setup").css("display", "none");
   console.log("client leaves channel success");
 }
@@ -180,15 +190,7 @@ async function subscribe(user, mediaType) {
       <div id="player-wrapper-${uid}">
         <p class="player-name">remoteUser(${uid})</p>
         <div id="player-${uid}" class="player"></div>
-        <p class="player-name">Video Mirror</p>
-        <div id="player-${uid}-mirror-area" class="player" style="border: 2px dashed red ;">
-            <div style="width: 100%; height: 100%; position: relative; overflow: hidden; background-color: black;">
-                <video id="video_track-video-${uid}-mirror" 
-                    class="agora_video_player" playsinline="" muted="" 
-                    style="width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; object-fit: contain;">
-                </video>
-            </div>
-        </div>
+  
       </div>
     `);
     $("#remote-playerlist").append(player);
@@ -196,15 +198,11 @@ async function subscribe(user, mediaType) {
       fit: "contain"
     });
 
-    //handling the mirror video
-    $(`#player-${uid}-mirror-area`).show();
-    var mirrorRemotePlayer = document.getElementById(`video_track-video-${uid}-mirror`);
     //get browser-native object MediaStreamTrack from WebRTC SDK
     const msTrack = user.videoTrack.getMediaStreamTrack();
     //generate browser-native object MediaStream with above video track
     const ms = new MediaStream([msTrack]);
-    mirrorRemotePlayer.srcObject = ms;
-    mirrorRemotePlayer.play();
+
   }
   if (mediaType === 'audio') {
     user.audioTrack.play();
