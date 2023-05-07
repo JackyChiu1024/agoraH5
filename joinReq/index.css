@@ -40,7 +40,7 @@ input {
 
 .player-name {
   margin: 8px 0;
-  height: 600px;
+  height: 6px;
 }
 
 #success-alert, #success-alert-with-token {
