@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "698JXmJjdHwoeSl9UnCrQ2"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "D_Run_06",
+      "rect": [
+        31,
+        39,
+        118,
+        174
+      ],
+      "offset": [
+        9.5,
+        -19
+      ],
+      "originalSize": [
+        161,
+        214
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

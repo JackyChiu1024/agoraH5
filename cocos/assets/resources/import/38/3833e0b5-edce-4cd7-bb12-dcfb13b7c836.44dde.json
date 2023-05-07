@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "a4/fhrCM1K/7dzJzOJx6dZ"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "apple",
+      "rect": [
+        0,
+        0,
+        3840,
+        2160
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        3840,
+        2160
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

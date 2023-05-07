@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "d3z9Lh1+tHuJZrcYnKAkEO"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "E_Jump_01",
+      "rect": [
+        26,
+        46,
+        121,
+        167
+      ],
+      "offset": [
+        6,
+        -22.5
+      ],
+      "originalSize": [
+        161,
+        214
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

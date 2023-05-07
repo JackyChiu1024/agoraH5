@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "0eHw6XQLZHK5xkuJzJEto6"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "B_DropEnd_01",
+      "rect": [
+        39,
+        45,
+        116,
+        169
+      ],
+      "offset": [
+        16.5,
+        -22.5
+      ],
+      "originalSize": [
+        161,
+        214
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

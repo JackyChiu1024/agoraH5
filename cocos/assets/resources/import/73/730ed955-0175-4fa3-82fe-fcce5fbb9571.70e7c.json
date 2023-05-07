@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "b1NhWVblVCwovkOhNKoFd7"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "F_Fall_02",
+      "rect": [
+        17,
+        2,
+        128,
+        205
+      ],
+      "offset": [
+        0.5,
+        2.5
+      ],
+      "originalSize": [
+        161,
+        214
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

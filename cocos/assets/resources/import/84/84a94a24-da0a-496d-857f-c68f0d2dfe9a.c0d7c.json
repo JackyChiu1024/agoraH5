@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "18EKEoPW9IErODkPvxcbDE"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "H_Run_10",
+      "rect": [
+        59,
+        52,
+        102,
+        161
+      ],
+      "offset": [
+        29.5,
+        -25.5
+      ],
+      "originalSize": [
+        161,
+        214
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

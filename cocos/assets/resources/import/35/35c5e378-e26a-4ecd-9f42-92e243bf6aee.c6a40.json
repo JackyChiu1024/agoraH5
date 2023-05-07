@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "73r39XHipJooJDUVtxFLG+"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "Phantom5_02",
+      "rect": [
+        12,
+        7,
+        158,
+        171
+      ],
+      "offset": [
+        4.5,
+        -3
+      ],
+      "originalSize": [
+        173,
+        179
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]
