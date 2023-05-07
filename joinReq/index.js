@@ -168,7 +168,7 @@ async function leave() {
 
   // remove remote users and player views
   remoteUsers = {};
-  $("#remote-playerlist").html("");
+  $("#remote-playerlist-1").html("");
 
   // leave the channel
   await client.leave();
@@ -180,6 +180,9 @@ async function leave() {
   $("#joined-setup").css("display", "none");
   console.log("client leaves channel success");
 }
+
+
+
 async function subscribe(user, mediaType) {
   const uid = user.uid;
   // subscribe to a remote user
@@ -193,15 +196,32 @@ async function subscribe(user, mediaType) {
   
       </div>
     `);
-    $("#remote-playerlist").append(player);
-    user.videoTrack.play(`player-${uid}`, {
-      fit: "contain"
+//    $("#remote-playerlist-1").append(player);
+//    $("#remote-playerlist-2").append(player);
+
+        // 使用jQuery的AJAX方法獲取另一個HTML文件
+    $.ajax({
+      url: 'showView1.html',
+      success: function(data) {
+        // 將HTML文件中的內容插入到當前頁面中
+        var otherHtml = $(data);
+        $('body').append(otherHtml);
+
+        // 選擇id為"mydiv2"的div元素並操作它
+        var mydiv2 = $('#remote-playerlist-1');
+        mydiv2.append(player);
+        
+        user.videoTrack.play(`player-${uid}`, {
+          fit: "contain"
+        });
+    
+        //get browser-native object MediaStreamTrack from WebRTC SDK
+        const msTrack = user.videoTrack.getMediaStreamTrack();
+        //generate browser-native object MediaStream with above video track
+        const ms = new MediaStream([msTrack]);
+      }
     });
 
-    //get browser-native object MediaStreamTrack from WebRTC SDK
-    const msTrack = user.videoTrack.getMediaStreamTrack();
-    //generate browser-native object MediaStream with above video track
-    const ms = new MediaStream([msTrack]);
 
   }
   if (mediaType === 'audio') {
