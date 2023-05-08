@@ -122,11 +122,13 @@ async function subscribe(user, mediaType) {
   console.log("subscribe success");
   if (mediaType === 'video') {
     const player = $(`
-      <div id="player-wrapper-${uid}">
+      <div id="player-wrapper-${uid}" class="fitContent">
         <div id="player-${uid}" class="player"></div>
       </div>
     `);
-    
+  //   const player = $(`
+  //     <div id="player-${uid}" class="player"></div>
+  // `);
     $("#remote-playerlist-1").append(player);
     user.videoTrack.play(`player-${uid}`, {
       fit: "contain"
