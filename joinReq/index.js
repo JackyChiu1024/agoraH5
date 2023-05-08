@@ -63,8 +63,11 @@ function reqJion(appid, channel, token="", uid="") {
   options.audienceLatency = 1;
 }
 
-function mockJoin() {
+function mockJoin(channel = "") {
   let opt = mockOpt;
+  if(channel !="") {
+    opt.channel = channel;
+  }
   // create Agora client
   if (opt.role === "audience") {
     client.setClientRole(opt.role, {
