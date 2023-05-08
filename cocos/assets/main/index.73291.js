@@ -960,7 +960,7 @@ window.__require = function e(t, n, r) {
         _this.testBtn = null;
         _this.webviewReq = null;
         _this.webviewRes = null;
-        _this._reqUrl = document.location.origin + "/agoraH5/joinReq/index.html";
+        _this._reqUrl = document.location.origin + "/agoraH5/joinReq/index.html?h=100&w=200&action=mockJoin&appId=e3e16446c0d44bb6a04597f0668b9b6a&channelName=superstar_video_3_743872";
         return _this;
       }
       Lobby.prototype.onLoad = function() {
@@ -976,15 +976,12 @@ window.__require = function e(t, n, r) {
       };
       Lobby.prototype._join = function() {
         this.webviewReq.node.active = true;
-        this.webviewReq.evaluateJS("mockJoin()");
       };
       Lobby.prototype._leave = function() {
-        this.webviewReq.evaluateJS("leave()");
         this.webviewReq.node.active = false;
       };
       Lobby.prototype._test = function() {
         this.webviewReq.node.active = true;
-        this.webviewReq.evaluateJS("printText()");
       };
       __decorate([ property(cc.ToggleContainer) ], Lobby.prototype, "characterSelection", void 0);
       __decorate([ property(cc.Button) ], Lobby.prototype, "startBtn", void 0);
