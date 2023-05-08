@@ -38,6 +38,21 @@ function reqJion(appid, channel, token="", uid="") {
   options.audienceLatency = 1;
 }
 
+function mockJoin() {
+  let opt = mockOpt;
+  // create Agora client
+  if (opt.role === "audience") {
+    client.setClientRole(opt.role, {
+      level: opt.audienceLatency
+    });
+    // add event listener to play remote tracks when remote user publishs.
+    client.on("user-published", handleUserPublished);
+    client.on("user-unpublished", handleUserUnpublished);
+  } 
+  // join the channel
+  opt.uid = client.join(opt.appid, opt.channel, opt.token || null, opt.uid || null);  
+}
+
 async function join(opt) {
   // create Agora client
   if (opt.role === "audience") {

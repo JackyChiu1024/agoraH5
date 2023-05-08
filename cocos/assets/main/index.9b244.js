@@ -960,7 +960,7 @@ window.__require = function e(t, n, r) {
         _this.testBtn = null;
         _this.webviewReq = null;
         _this.webviewRes = null;
-        _this._reqUrl = document.location.origin + "/build/agoraH5/joinReq/index.html";
+        _this._reqUrl = document.location.origin + "/agoraH5/joinReq/index.html";
         return _this;
       }
       Lobby.prototype.onLoad = function() {
@@ -976,7 +976,7 @@ window.__require = function e(t, n, r) {
       };
       Lobby.prototype._join = function() {
         this.webviewReq.node.active = true;
-        this.webviewReq.evaluateJS("join(mockOpt)");
+        this.webviewReq.evaluateJS("mockJoin()");
       };
       Lobby.prototype._leave = function() {
         this.webviewReq.evaluateJS("leave()");
