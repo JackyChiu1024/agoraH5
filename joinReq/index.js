@@ -1,28 +1,5 @@
 //   https://jackychiu1024.github.io/agoraH5/joinReq/index.html?h=100&w=200&action=mockJoin&appId=e3e16446c0d44bb6a04597f0668b9b6a&channelName=superstar_video_3_743872
 
-
-
-// 從 URL 中讀取 h 和 w 參數
-const urlParams = new URLSearchParams(window.location.search);
-const h = urlParams.get('h');
-const w = urlParams.get('w');
-const AppId = urlParams.get('appId');
-const ChannelName = urlParams.get('channelName');
-
-// 設置頁面高度和寬度
-document.documentElement.style.height = `${h}px`;
-document.documentElement.style.width = `${w}px`;
-
-
-
-// 如果 URL 中包含 'action=render'，則執行 render function
-if (urlParams.get('action') === 'mockJoin') {
-  mockOpt.appid = AppId;
-  mockOpt.channel = ChannelName;
-  mockJoin();
-}
-
-
 // create Agora client
 var client = AgoraRTC.createClient({
   mode: "live",
@@ -53,6 +30,29 @@ var mockOpt = {
   role: "audience",
   audienceLatency: 1  
 }
+
+// 從 URL 中讀取 h 和 w 參數
+const urlParams = new URLSearchParams(window.location.search);
+const h = urlParams.get('h');
+const w = urlParams.get('w');
+const AppId = urlParams.get('appId');
+const ChannelName = urlParams.get('channelName');
+
+// 設置頁面高度和寬度
+document.documentElement.style.height = `${h}px`;
+document.documentElement.style.width = `${w}px`;
+
+
+
+// 如果 URL 中包含 'action=render'，則執行 render function
+if (urlParams.get('action') === 'mockJoin') {
+  mockOpt.appid = AppId;
+  mockOpt.channel = ChannelName;
+  mockJoin();
+}
+
+
+
 
 function reqJion(appid, channel, token="", uid="") {
   options.appid = appid;
