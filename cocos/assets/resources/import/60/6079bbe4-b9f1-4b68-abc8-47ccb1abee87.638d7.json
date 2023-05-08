@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "81swECf7VKTLQuey7g6Z6d"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "Phantom7_03",
+      "rect": [
+        20,
+        7,
+        133,
+        172
+      ],
+      "offset": [
+        0,
+        -3.5
+      ],
+      "originalSize": [
+        173,
+        179
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]

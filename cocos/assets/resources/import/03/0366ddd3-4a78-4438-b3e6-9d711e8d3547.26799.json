@@ -1,0 +1,51 @@
+[
+  1,
+  [
+    "08uC46qdFLBazYpib4Zj6U"
+  ],
+  [
+    "_textureSetter"
+  ],
+  [
+    "cc.SpriteFrame"
+  ],
+  0,
+  [
+    {
+      "name": "H_ReadyJump_01",
+      "rect": [
+        63,
+        57,
+        93,
+        156
+      ],
+      "offset": [
+        29,
+        -28
+      ],
+      "originalSize": [
+        161,
+        214
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  [
+    0
+  ],
+  0,
+  [
+    0
+  ],
+  [
+    0
+  ],
+  [
+    0
+  ]
+]
