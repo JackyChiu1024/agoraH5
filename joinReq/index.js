@@ -33,14 +33,15 @@ var mockOpt = {
 
 // 從 URL 中讀取 h 和 w 參數
 const urlParams = new URLSearchParams(window.location.search);
-const h = urlParams.get('h');
-const w = urlParams.get('w');
+const Height = urlParams.get('h');
+const Width = urlParams.get('w');
+const UId = urlParams.get('uid');
 const AppId = urlParams.get('appId');
 const ChannelName = urlParams.get('channelName');
 
 // 設置頁面高度和寬度
-document.documentElement.style.height = `${h}px`;
-document.documentElement.style.width = `${w}px`;
+document.documentElement.style.height = `${Height}px`;
+document.documentElement.style.width = `${Width}px`;
 
 
 
@@ -48,7 +49,10 @@ document.documentElement.style.width = `${w}px`;
 if (urlParams.get('action') === 'mockJoin') {
   mockOpt.appid = AppId;
   mockOpt.channel = ChannelName;
+  mockOpt.uid = UId;
   mockJoin();
+} else if (urlParams.get('action') === 'leave') {
+  leave();
 }
 
 
