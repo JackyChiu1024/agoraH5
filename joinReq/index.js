@@ -36,7 +36,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const Height = urlParams.get('h');
 const Width = urlParams.get('w');
 const UId = urlParams.get('uid');
-const SeatIdx = urlParams.get('seatIdx');
+const SeatIdx = urlParams.get('seatIdx')==0? 1:2;
 const AppId = urlParams.get('appId');
 const ChannelName = urlParams.get('channelName');
 
