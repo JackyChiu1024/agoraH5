@@ -54,7 +54,7 @@ body.style.height = `${Height}px`;
 if (urlParams.get('action') === 'mockJoin') {
   mockOpt.appid = AppId;
   mockOpt.channel = ChannelName;
-  mockOpt.uid = UId;
+ // mockOpt.uid = UId;
   mockJoin();
 } else if (urlParams.get('action') === 'leave') {
   leave();
@@ -157,7 +157,7 @@ async function subscribe(user, mediaType) {
 
 function handleUserPublished(user, mediaType) {
   const id = user.uid;
-//  if(id!=UId) return;
+  if(id!=UId) return;
   remoteUsers[id] = user;
   subscribe(user, mediaType);
 }
@@ -165,7 +165,7 @@ function handleUserPublished(user, mediaType) {
 function handleUserUnpublished(user, mediaType) {
   if (mediaType === 'video') {
     const id = user.uid;
-  //  if(id!=UId) return;
+    if(id!=UId) return;
     delete remoteUsers[id];
     $(`#player-wrapper-${id}-${SeatIdx}`).remove();
   }
