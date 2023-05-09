@@ -41,8 +41,8 @@ const AppId = urlParams.get('appId');
 const ChannelName = urlParams.get('channelName');
 
 // 設置頁面高度和寬度
-document.documentElement.style.height = `${Height}px`;
-document.documentElement.style.width = `${Width}px`;
+//document.documentElement.style.height = `${Height}px`;
+//document.documentElement.style.width = `${Width}px`;
 
 
 
