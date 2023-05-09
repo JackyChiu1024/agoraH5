@@ -164,7 +164,7 @@ function handleUserUnpublished(user, mediaType) {
   if (mediaType === 'video') {
     const id = user.uid;
     delete remoteUsers[id];
-   // $(`#player-wrapper-${id}-${SeatIdx}`).remove();
+    $(`#player-wrapper-${id}-${SeatIdx}`).remove();
   }
 }
 
