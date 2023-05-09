@@ -40,6 +40,10 @@ const SeatIdx = urlParams.get('seatIdx')==0? 1:2;
 const AppId = urlParams.get('appId');
 const ChannelName = urlParams.get('channelName');
 
+var body = document.getElementsByTagName("body")[0];
+body.style.width = `${Width}px`;
+body.style.height = `${Height}px`;
+
 // 設置頁面高度和寬度
 //document.documentElement.style.height = `${Height}px`;
 //document.documentElement.style.width = `${Width}px`;
