@@ -36,6 +36,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const Height = urlParams.get('h');
 const Width = urlParams.get('w');
 const UId = urlParams.get('uid');
+const SeatIdx = urlParams.get('seatIdx');
 const AppId = urlParams.get('appId');
 const ChannelName = urlParams.get('channelName');
 
@@ -111,7 +112,7 @@ async function leave() {
 
   // remove remote users and player views
   remoteUsers = {};
-  $("#remote-playerlist-1").html("");
+  $(`#remote-playerlist-${SeatIdx}`).html("");
   // leave the channel
   await client.leave();
   console.log("client leaves channel success");
@@ -126,15 +127,15 @@ async function subscribe(user, mediaType) {
   console.log("subscribe success");
   if (mediaType === 'video') {
     const player = $(`
-      <div id="player-wrapper-${uid}" class="fitContent">
-        <div id="player-${uid}" class="player"></div>
+      <div id="player-wrapper-${uid}-${SeatIdx}" class="fitContent">
+        <div id="player-${uid}-${SeatIdx}" class="player"></div>
       </div>
     `);
   //   const player = $(`
   //     <div id="player-${uid}" class="player"></div>
   // `);
-    $("#remote-playerlist-1").append(player);
-    user.videoTrack.play(`player-${uid}`, {
+    $(`#remote-playerlist-${SeatIdx}`).append(player);
+    user.videoTrack.play(`player-${uid}-${SeatIdx}`, {
       fit: "contain"
     });
 
@@ -159,9 +160,23 @@ function handleUserUnpublished(user, mediaType) {
   if (mediaType === 'video') {
     const id = user.uid;
     delete remoteUsers[id];
-    $(`#player-wrapper-${id}`).remove();
+    $(`#player-wrapper-${id}-${SeatIdx}`).remove();
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 var win;
