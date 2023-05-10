@@ -19,7 +19,7 @@ var options = {
   token: null,
   role: "audience",
   // host or audience
-  audienceLatency: 2
+  audienceLatency: 1
 };
 
 var mockOpt = {
@@ -36,7 +36,9 @@ const urlParams = new URLSearchParams(window.location.search);
 const Height = urlParams.get('h');
 const Width = urlParams.get('w');
 const UId = urlParams.get('uid');
-const SeatIdx = urlParams.get('seatIdx')==0? 1:2;
+//const SeatIdx = urlParams.get('seatIdx')==0? 1:2;
+const SeatIdx = "1";
+
 const AppId = urlParams.get('appId');
 const ChannelName = urlParams.get('channelName');
 
@@ -49,34 +51,18 @@ body.style.height = `${Height}px`;
 //document.documentElement.style.width = `${Width}px`;
 
 
-
 // 如果 URL 中包含 'action=render'，則執行 render function
-if (urlParams.get('action') === 'mockJoin') {
-  mockOpt.appid = AppId;
-  mockOpt.channel = ChannelName;
+if (urlParams.get('action') === 'cocosH5Join') {
+  options.appid = AppId;
+  options.channel = ChannelName;
  // mockOpt.uid = UId;
-  mockJoin();
-} else if (urlParams.get('action') === 'leave') {
-  leave();
+ cocosH5Join();
+} else if (urlParams.get('action') === 'cocosH5Leave') {
+  cocosH5Leave();
 }
 
-
-
-
-function reqJion(appid, channel, token="", uid="") {
-  options.appid = appid;
-  options.channel = channel;
-  options.role = 'audience';
-  options.token = token;
-  options.uid = uid;
-  options.audienceLatency = 1;
-}
-
-function mockJoin(channel = "") {
-  let opt = mockOpt;
-  if(channel !="") {
-    opt.channel = channel;
-  }
+function cocosH5Join() {
+  let opt = options;
   // create Agora client
   if (opt.role === "audience") {
     client.setClientRole(opt.role, {
@@ -104,7 +90,7 @@ async function join(opt) {
   opt.uid = await client.join(opt.appid, opt.channel, opt.token || null, opt.uid || null);  
 }
 
-async function leave() {
+async function cocosH5Leave() {
   for (trackName in localTracks) {
     var track = localTracks[trackName];
     if (track) {
@@ -136,9 +122,7 @@ async function subscribe(user, mediaType) {
         <div id="player-${uid}-${SeatIdx}" class="player"></div>
       </div>
     `);
-  //   const player = $(`
-  //     <div id="player-${uid}" class="player"></div>
-  // `);
+
     $(`#remote-playerlist-${SeatIdx}`).append(player);
     user.videoTrack.play(`player-${uid}-${SeatIdx}`, {
       fit: "contain"
