@@ -102,7 +102,7 @@ async function cocosH5Leave() {
 
   // remove remote users and player views
   remoteUsers = {};
-  $(`#player-wrapper-${id}-${SeatIdx}`).remove();
+  $(`#player-wrapper-${UId}-${SeatIdx}`).remove();
   $(`#remote-playerlist-${SeatIdx}`).html("");
   // leave the channel
   await client.leave();
