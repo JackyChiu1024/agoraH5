@@ -32,18 +32,29 @@ var mockOpt = {
 }
 
 window.addEventListener('load', function() {
-  // 取得網頁內容的高度
-  var contentHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+  var contentHeight = 0;
+  if (typeof document.documentElement.scrollHeight !== "undefined") {
+    contentHeight = document.documentElement.scrollHeight;
+  } else {
+    contentHeight = document.body.scrollHeight;
+  }
   
-  // 取得視窗的高度
   var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-  
-  // 計算上下置中的滾動位置
   var scrollPosition = (contentHeight - windowHeight) / 2;
-  
-  // 將滾動條移動到上下置中位置
   window.scrollTo(0, scrollPosition);
+  
+  // 禁止滾動的事件處理程序
+  function preventScroll(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  }
+  
+  // 在滾動事件上註冊事件處理程序
+  window.addEventListener('wheel', preventScroll, { passive: false });
+  window.addEventListener('touchmove', preventScroll, { passive: false });
 });
+
 
 
 // 從 URL 中讀取 h 和 w 參數
