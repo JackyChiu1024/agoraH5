@@ -31,18 +31,23 @@ var mockOpt = {
   audienceLatency: 1  
 }
 
+
+function scrollToMid() {
+    var contentHeight = 0;
+    if (typeof document.documentElement.scrollHeight !== "undefined") {
+      contentHeight = document.documentElement.scrollHeight;
+    } else {
+      contentHeight = document.body.scrollHeight;
+    }
+    
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    var scrollPosition = (contentHeight - windowHeight) / 2;
+    window.scrollTo(0, scrollPosition);
+}
+
 window.addEventListener('load', function() {
-  var contentHeight = 0;
-  if (typeof document.documentElement.scrollHeight !== "undefined") {
-    contentHeight = document.documentElement.scrollHeight;
-  } else {
-    contentHeight = document.body.scrollHeight;
-  }
-  
-  var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-  var scrollPosition = (contentHeight - windowHeight) / 2;
-  window.scrollTo(0, scrollPosition);
-  
+
+  scrollToMid();
   // 禁止滾動的事件處理程序
   function preventScroll(event) {
     event.preventDefault();
@@ -113,7 +118,8 @@ async function join(opt) {
     client.on("user-unpublished", handleUserUnpublished);
   } 
   // join the channel
-  opt.uid = await client.join(opt.appid, opt.channel, opt.token || null, opt.uid || null);  
+  opt.uid = await client.join(opt.appid, opt.channel, opt.token || null, opt.uid || null); 
+  scrollToMid(); 
 }
 
 async function cocosH5Leave() {
@@ -163,6 +169,7 @@ async function subscribe(user, mediaType) {
   if (mediaType === 'audio') {
     user.audioTrack.play();
   }
+  scrollToMid();
 }
 
 function handleUserPublished(user, mediaType) {
