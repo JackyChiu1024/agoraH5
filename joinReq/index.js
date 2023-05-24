@@ -69,6 +69,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const Height = urlParams.get('h');
 const Width = urlParams.get('w');
 const UId = urlParams.get('uid');
+const ServerId = urlParams.get('serverId');
 //const SeatIdx = urlParams.get('seatIdx')==0? 1:2;
 const SeatIdx = "1";
 
@@ -81,7 +82,9 @@ body.style.height = `${Height}px`;
 
 
 $('#remote-playerlist-1').click(function() {
-  window.parent.postMessage(UId, "*");
+  let obj = { url: 'ccjs://h5StreamLive', serverId : ServerId}
+  
+  window.parent.postMessage(JSON.stringify(obj), "*");
   console.log("[starseatH5] onWebViewClick")
 });
 
