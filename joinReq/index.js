@@ -31,10 +31,11 @@ var mockOpt = {
   audienceLatency: 1  
 }
 
-function onWebViewClick() {
+$('#remote-playerlist-1').click(function() {
   parent.starSeatH5_SelfClick();
   console.log("[starseatH5] onWebViewClick")
-}
+});
+
 
 function scrollToMid() {
     var contentHeight = 0;
