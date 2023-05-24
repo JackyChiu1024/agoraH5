@@ -31,10 +31,7 @@ var mockOpt = {
   audienceLatency: 1  
 }
 
-$('#remote-playerlist-1').click(function() {
-  parent.starSeatH5_SelfClick();
-  console.log("[starseatH5] onWebViewClick")
-});
+
 
 
 function scrollToMid() {
@@ -81,6 +78,12 @@ const ChannelName = urlParams.get('channelName');
 var body = document.getElementsByTagName("body")[0];
 body.style.width = `${Width}px`;
 body.style.height = `${Height}px`;
+
+
+$('#remote-playerlist-1').click(function() {
+  window.parent.postMessage(UId, "*");
+  console.log("[starseatH5] onWebViewClick")
+});
 
 // 設置頁面高度和寬度
 //document.documentElement.style.height = `${Height}px`;
