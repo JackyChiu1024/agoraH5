@@ -82,7 +82,7 @@ body.style.height = `${Height}px`;
 
 
 $('#remote-playerlist-1').click(function() {
-  let obj = { url: 'ccjs://h5StreamLive', serverId : ServerId}
+  let obj = { url: window.location.href + 'h5StreamLive', serverId : ServerId}
   
   window.parent.postMessage(JSON.stringify(obj), "*");
   console.log("[starseatH5] onWebViewClick")
