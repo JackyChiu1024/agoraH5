@@ -5,12 +5,15 @@ var client = AgoraRTC.createClient({
   mode: "live",
   codec: "vp8"
 });
+
 AgoraRTC.enableLogUpload();
 var localTracks = {
   videoTrack: null,
   audioTrack: null
 };
+
 var remoteUsers = {};
+
 // Agora client options
 var options = {
   appid: null,
@@ -21,18 +24,6 @@ var options = {
   // host or audience
   audienceLatency: 1
 };
-
-var mockOpt = {
-  appid: "e3e16446c0d44bb6a04597f0668b9b6a",
-  channel: "superstar_video_3_373326",
-  uid: null,
-  token: null,
-  role: "audience",
-  audienceLatency: 1  
-}
-
-
-
 
 function scrollToMid() {
     var contentHeight = 0;
@@ -197,37 +188,4 @@ function handleUserUnpublished(user, mediaType) {
     delete remoteUsers[id];
     $(`#player-wrapper-${id}-${SeatIdx}`).remove();
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var win;
-function testOpenNewWindow(text) {
-  win =window.open('./showView1.html', '_blank', 'width=500,height=500');
-  // win = window.open();  //開啟新的空白視窗
-  win.document.write ("<h1>url:"+win.location.href+"</h1>");  //在新視窗中輸出提示資訊
-  win.focus ();  //讓原視窗獲取焦點
-  //win.opener.document.write ("<h1>這是原來視窗</h1>");  //在原視窗中輸出提示資訊
-  console.log(win.opener == window);  //檢測window.opener屬性值
-}
-
-function testCloseWindow() {
-  win.close();
-}
-
-function printText() {
-  console.error("test tset tset aa");
 }
